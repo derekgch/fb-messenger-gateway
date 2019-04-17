@@ -30,9 +30,10 @@ const
   app = express().use(body_parser.json()); // creates express http server
 
 // Sets server port and logs message on success
-app.listen(process.env.PORT || 1337, () => {
+var listner = app.listen(1337, () => {
   console.log('webhook is listening');
   console.log('PAGE_ACCESS_TOKEN', PAGE_ACCESS_TOKEN);
+  console.log('Listening on port ' + listner.address().port)
 
 });
 
