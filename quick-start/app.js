@@ -37,6 +37,7 @@ app.post('/webhook', (req, res) => {
 
   // Parse the request body from the POST
   let body = req.body;
+  console.log(req, res);
 
   // Check the webhook event is from a Page subscription
   if (body.object === 'page') {
@@ -67,6 +68,7 @@ app.post('/webhook', (req, res) => {
 
   } else {
     // Return a '404 Not Found' if event is not from a page subscription
+    console.log("Error!")
     res.sendStatus(404);
   }
 
@@ -78,6 +80,7 @@ app.get('/webhook', (req, res) => {
   /** UPDATE YOUR VERIFY TOKEN **/
   const VERIFY_TOKEN = "<YOUR VERIFY TOKEN>";
   
+  console.log('VERIFY_TOKEN', VERIFY_TOKEN)
   // Parse params from the webhook verification request
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
@@ -97,6 +100,9 @@ app.get('/webhook', (req, res) => {
       // Responds with '403 Forbidden' if verify tokens do not match
       res.sendStatus(403);      
     }
+  } else {
+    console.log("Error!")
+    res.sendStatus(404);      
   }
 });
 
