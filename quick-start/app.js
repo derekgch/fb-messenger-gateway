@@ -82,7 +82,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
   
   /** UPDATE YOUR VERIFY TOKEN **/
-  const VERIFY_TOKEN = "<YOUR VERIFY TOKEN>";
+  const VERIFY_TOKEN = "yo-yo";
   
   console.log('VERIFY_TOKEN', VERIFY_TOKEN)
   // Parse params from the webhook verification request
@@ -167,7 +167,6 @@ function handlePostback(sender_psid, received_postback) {
     response = { "text": "Oops, try sending another image." }
   }else{
     response = { "text": "I AM THE BEST BOT EVER!" }
-
   }
   // Send the message to acknowledge the postback
   callSendAPI(sender_psid, response);
